@@ -13,10 +13,13 @@ dependencies:
 
  # flutter_downloader: ^1.1.6
 
-  path_provider: ^2.0.0
+  path_provider: ^2.0.11
 
   permission_handler: 8.1.4
   oktoast: 3.0.0
+  flutter_filereader:
+    path: ../
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -28,8 +31,7 @@ dev_dependencies:
     sdk: flutter
 
 
-  flutter_filereader:
-    path: ../
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

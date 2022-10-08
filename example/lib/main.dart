@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_filereader/filereader.dart';
 import 'package:flutter_filereader_example/file.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:path_provider/path_provider.dart';
@@ -80,6 +81,17 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('File Reader'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              FileReader().initTencentSmttSdk();
+            },
+            child: Text(
+              'initSdk',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) {

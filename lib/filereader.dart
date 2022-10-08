@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/services.dart';
 
 class FileReader {
@@ -14,6 +16,18 @@ class FileReader {
   static const MethodChannel _channel = const MethodChannel('wv.io/FileReader');
 
   FileReader._();
+
+  // Author: qipengxiang
+  // Date: 2022-10-08
+  //
+  // 禁用了原来的自动初始化方法
+  // 新增腾讯文档浏览服务手动初始化方法，用来解决小米、华为应用商店的隐私政策审核在用户未授权的情况下读取设备信息
+  Future<void> initTencentSmttSdk() async {
+    if (Platform.isAndroid) {
+      // 仅在Android环境下使用了TencentX5浏览器服务，iOS环境下使用的是系统提供的WKWebView服务所以不需要初始化
+      await _channel.invokeMethod('initTencentSmttSdk');
+    }
+  }
 
   //X5 engin  load state
   // -1 loading  5 success 10 fail
