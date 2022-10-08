@@ -38,6 +38,18 @@ Make sure you add the following key to Info.plist for iOS
 ```
  
 ### Example
+
+- init
+
+You should init sdk 
+
+shoud call method 
+
+for privacy guide you should init sdk at user agree <user privacy guide>
+
+FileReader().initTencentSmttSdk();
+
+
 ```
 import 'package:flutter/material.dart';
 import 'package:flutter_filereader/flutter_filereader.dart';
