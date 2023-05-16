@@ -23,13 +23,14 @@ public class X5FileReaderView implements PlatformView, MethodChannel.MethodCallH
     private TbsReaderView readerView;
 
     private String tempPath;
-
+    private Context context;
 
     FlutterFileReaderPlugin plugin;
 
 
     X5FileReaderView(Context context, BinaryMessenger messenger, int id, Map<String, Object> params, FlutterFileReaderPlugin plugin) {
         this.plugin = plugin;
+        this.context = context;
         tempPath = context.getCacheDir() + "/" + "TbsReaderTemp";
         methodChannel = new MethodChannel(messenger, FlutterFileReaderPlugin.channelName + "_" + id);
         methodChannel.setMethodCallHandler(this);
@@ -77,7 +78,7 @@ public class X5FileReaderView implements PlatformView, MethodChannel.MethodCallH
             localBundle.putString("tempPath", tempPath);
             readerView.openFile(localBundle);
         } else {
-            QbSdk.clearAllWebViewCache(this.plugin.ctx, true);
+            QbSdk.clearAllWebViewCache(this.context, true);
         }
 
     }
