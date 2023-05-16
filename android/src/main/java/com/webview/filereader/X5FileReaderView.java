@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tencent.smtt.sdk.TbsReaderView;
+import com.tencent.smtt.sdk.QbSdk;
 
 import java.io.File;
 import java.util.Map;
@@ -75,6 +76,8 @@ public class X5FileReaderView implements PlatformView, MethodChannel.MethodCallH
             localBundle.putBoolean("is_bar_animating", false);
             localBundle.putString("tempPath", tempPath);
             readerView.openFile(localBundle);
+        } else {
+            QbSdk.clearAllWebViewCache(this,true);
         }
 
     }
