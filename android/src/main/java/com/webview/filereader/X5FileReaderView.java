@@ -77,7 +77,7 @@ public class X5FileReaderView implements PlatformView, MethodChannel.MethodCallH
             localBundle.putString("tempPath", tempPath);
             readerView.openFile(localBundle);
         } else {
-            QbSdk.clearAllWebViewCache(this,true);
+            QbSdk.clearAllWebViewCache(this.plugin.ctx, true);
         }
 
     }
